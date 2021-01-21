@@ -57,12 +57,12 @@
                 collapse: false,
                 items: [
                     {
-                        icon: 'el-icon-lx-home',
+                        icon: 'el-icon-s-home',
                         index: 'dashboard',
                         title: '系统首页'
                     },
                     {
-                        icon: 'el-icon-lx-cascades',
+                        icon: 'el-icon-brush',
                         index: 'knowledge',
                         title: '知识库'
                     }

@@ -11,22 +11,20 @@ import request from '../utils/request';
 var axiosIns = {
     getAjaxUrl: function (path) {
         if (path.indexOf('http') == 0) return path;
-        return 'http://localhost:8080/' + path;
+        return path;
     },
     get: function (path, param) {
         var url = this.getAjaxUrl(path);
-        return axios.get(url, {params: param || {}}).catch(function (resp) {
-            return resp;
-        });
+        return request.get(url, {params: param || {}});
     },
 
     post: function (path, param) {
-        return axios.post(this.getAjaxUrl(path), param || {}).catch(function (resp) {
+        return request.post(this.getAjaxUrl(path), param || {}).catch(function (resp) {
             return resp;
         });
     },
     postDownload: function (path, param) {
-        return axios.post(this.getAjaxUrl(path), param || {}, {responseType: 'arraybuffer'}).catch(function (resp) {
+        return request.post(this.getAjaxUrl(path), param || {}, {responseType: 'arraybuffer'}).catch(function (resp) {
             return resp;
         });
     },

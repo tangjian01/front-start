@@ -1,10 +1,28 @@
 <template>
-    <div>wo shi shou ye </div>
+    <div>{{ user }}</div>
 </template>
 
 <script>
+    import userinfo from "~/api/js/userinfo";
     export default {
-        name: "Dashboard"
+        name: "Dashboard",
+        data(){
+            return {
+                user : {}
+            }
+        },
+        methods:{
+            init:function () {
+                var me = this;
+                userinfo.getUserInfo(1).then(function (resp) {
+                    me.user = resp.data;
+                    console.log(process.env)
+                })
+            }
+        },
+        mounted() {
+            this.init();
+        }
     }
 </script>
 
