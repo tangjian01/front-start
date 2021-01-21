@@ -55,7 +55,7 @@
             return {
                 collapse: false,
                 fullscreen: false,
-                name: 'tangjian',
+                name: 'test',
                 message: 2
             };
         },
