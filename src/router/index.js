@@ -38,7 +38,7 @@ var router = new Router({
         {
             path: '/login',
             component: () => import('../components/page/login'),
-            meta: { title: '知识库' }
+            meta: { title: '登录' }
         }
     ]
 });

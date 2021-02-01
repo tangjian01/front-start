@@ -10,22 +10,22 @@ import req from '../ajax'
 
 var userRequest = function () {
     this.mapping = {
-        userinfo : "userinfo",
-        current:"current"
+        login : "login",
+        logout:"logout"
     };
 
-    this.controller = "user"
+    this.controller = ""
 
     this.getUrl = function (path) {
         return this.controller + "/" + path;
     }
+    this.logout = function () {
+        return req.get( this.getUrl( this.mapping.logout ))
+    }
+    this.login = function (name,password) {
+        return req.get( this.getUrl( this.mapping.login ),{username:name,password:password} )
+    }
 
-    this.getUserInfo = function (id) {
-        return req.get( this.getUrl( this.mapping.userinfo ),{id:id} )
-    }
-    this.getCurrent = function () {
-        return req.get( this.getUrl( this.mapping.current ))
-    }
 }
 
 

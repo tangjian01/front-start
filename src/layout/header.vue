@@ -50,12 +50,13 @@
 </template>
 <script>
     import bus from '../components/common/bus';
+    import login from "~/api/js/login";
     export default {
         data() {
             return {
                 collapse: false,
                 fullscreen: false,
-                name: 'test',
+                name: '',
                 message: 2
             };
         },
@@ -68,9 +69,12 @@
         methods: {
             // 用户名下拉菜单选择事件
             handleCommand(command) {
+                var me = this;
                 if (command == 'loginout') {
                     localStorage.removeItem('ms_username');
-                    this.$router.push('/login');
+                    login.logout().then(function (resp) {
+                        me.$router.push('/login');
+                    })
                 }
             },
             // 侧边栏折叠

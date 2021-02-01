@@ -26,7 +26,23 @@ service.interceptors.response.use(
         }
     },
     error => {
-        console.log(error);
+        error.data = {};
+        if(!error.response){
+
+        }
+        else if(error.response.status == 404){
+            //未找到
+        }
+        else if(error.response.status == 403){
+            //未登录
+            window.location = 'http://127.0.0.1:8011/#/login';
+        }
+        else if(error.response.status == 401){//未授权
+
+        }
+        else {
+            error.data.message = "未知错误";
+        }
         return Promise.reject();
     }
 );
